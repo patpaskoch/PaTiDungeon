@@ -5,5 +5,6 @@
 ## Version: 0.1.0
 ## SavedVariablesPerCharacter: PaTiDungeonDB
 
-PaTiSharedPanel.lua`r`nPaTiDungeon.lua
+PaTiSharedPanel.lua
+PaTiDungeon.lua
 
