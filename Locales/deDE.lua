@@ -1,0 +1,27 @@
+-- PaTiDungeon strings, Deutsch. One key per line: L.KEY = "Text".
+local _, ns = ...
+ns.Locales = ns.Locales or {}
+local L = ns.Locales.deDE or {}
+ns.Locales.deDE = L
+
+L.NOT_IN_INSTANCE = "Nicht in einer Instanz"
+L.UNKNOWN_INSTANCE = "Unbekannte Instanz"
+L.TYPE = "Typ: %s"
+L.GROUP = "Gruppe: %d Mitglieder"
+L.COMBAT = "Kampf: %s"
+L.LEADER = "Leitung: %s"
+L.YES = "ja"
+L.NO = "nein"
+L.LEADER_YOU = "Du"
+L.LEADER_OTHER = "Andere Person"
+L.TYPE_NONE = "-"
+L.TYPE_PARTY = "Dungeon"
+L.TYPE_RAID = "Schlachtzug"
+L.TYPE_PVP = "Schlachtfeld"
+L.TYPE_ARENA = "Arena"
+L.TYPE_SCENARIO = "Szenario"
+L.TEST_INSTANCE = "TESTINSTANZ"
+L.LOCK_WINDOW = "Fenster sperren"
+L.SCALE = "Größe"
+L.HIDDEN_HINT = "ausgeblendet. /pd show zeigt es wieder."
+L.VERSION = "Version %s"
