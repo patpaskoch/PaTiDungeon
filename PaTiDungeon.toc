@@ -1,0 +1,8 @@
+## Interface: 16001
+## Title: PaTiDungeon
+## Notes: Instanz- und Gruppenanzeige fuer den installierten WoW-Client
+## Author: PaTi
+## Version: 0.1.0
+## SavedVariablesPerCharacter: PaTiDungeonDB
+
+PaTiDungeon.lua
