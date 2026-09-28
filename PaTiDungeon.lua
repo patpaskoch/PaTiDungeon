@@ -5,6 +5,8 @@ frame:SetSize(280,132); frame:SetMovable(true); frame:EnableMouse(true); frame:R
 frame:SetBackdrop({bgFile="Interface\\DialogFrame\\UI-DialogBox-Background",edgeFile="Interface\\Tooltips\\UI-Tooltip-Border",edgeSize=12,insets={left=3,right=3,top=3,bottom=3}})
 local title=frame:CreateFontString(nil,"OVERLAY","GameFontNormal"); title:SetPoint("TOPLEFT",14,-12); title:SetText("PaTiDungeon")
 local body=frame:CreateFontString(nil,"OVERLAY","GameFontHighlightSmall"); body:SetPoint("TOPLEFT",14,-38); body:SetPoint("BOTTOMRIGHT",-14,12); body:SetJustifyH("LEFT"); body:SetJustifyV("TOP")
+title:Hide()
+PaTiSharedPanel.Attach(frame,"PaTiDungeon",{body},"/pd test zeigt die Vorschau.\n/pd lock und /pd unlock sperren das Fenster.")
 local function update()
  if testMode then body:SetText("TESTINSTANZ\nGruppe: 5 Mitglieder\nKampf: nein\nLeitung: Du") return end
  local name,instanceType=GetInstanceInfo(); local inInstance=IsInInstance(); local members=GetNumGroupMembers() or 0
