@@ -4,6 +4,7 @@
 ## Notes-deDE: Instanz-, Gruppen- und Kampfstatus auf einen Blick
 ## Author: PaTi
 ## Version: 0.1.0
+## IconTexture: Interface\AddOns\PaTiDungeon\Media\icon
 ## SavedVariablesPerCharacter: PaTiDungeonDB
 
 Shared\Shared.xml
