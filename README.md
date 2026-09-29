@@ -1,5 +1,7 @@
 # PaTiDungeon
 
+<img src="assets/icon-128.png" width="96" alt="PaTiDungeon icon">
+
 Instance, group and combat status at a glance, for World of Warcraft: Forever (Interface 16001). Display only.
 
 > Status: 0.1.0, in development, not yet released. Not yet tested in game since the rework.
@@ -18,6 +20,12 @@ Instance, group and combat status at a glance, for World of Warcraft: Forever (I
 - Enter a dungeon or join a group — the window updates by itself
 - `/pd test` shows example data
 
+## Settings
+`/pd settings` or ••• → Settings: language, scale, window lock.
+
 ## Commands
 `/pd` or `/patidungeon` — alone: show/hide · `settings` · `test` · `show` · `hide` · `lock` · `unlock` ·
 `reset` (position) · `debug` · `version`
+
+## License
+MIT — see [LICENSE](LICENSE). Copyright (c) 2026 Patrick Koch.

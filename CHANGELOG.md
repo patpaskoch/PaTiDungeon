@@ -5,6 +5,8 @@ History before this file: `git log`.
 
 ## [Unreleased]
 ### Added
+- AddOns list icon from the PaTiSuite icon set (`Media/icon.tga`, `## IconTexture`); platform images in `assets/`.
+- MIT license (`LICENSE`, not part of the release zip).
 - PaTiShared window with ••• menu (Settings, Lock/Unlock, Collapse/Expand, Test Mode, Hide), settings modal
   (language, scale, lock), `/pd settings, reset, debug, version`; `/pd` alone shows/hides the window.
 - English texts, German translation; instance types are shown with a translated name instead of the raw API word.
