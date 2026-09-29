@@ -1,6 +1,7 @@
 ## Interface: 16001
 ## Title: PaTiDungeon
-## Notes: Instanz- und Gruppenanzeige fuer den installierten WoW-Client
+## Notes: Instance, group and combat status at a glance
+## Notes-deDE: Instanz-, Gruppen- und Kampfstatus auf einen Blick
 ## Author: PaTi
 ## Version: 0.1.0
 ## SavedVariablesPerCharacter: PaTiDungeonDB

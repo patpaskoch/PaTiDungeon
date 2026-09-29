@@ -1,14 +1,23 @@
 # PaTiDungeon
 
-Instanz-, Gruppen- und Kampfstatus für den WoW-Forever-Client (Interface 16001). Reine Anzeige.
+Instance, group and combat status at a glance, for World of Warcraft: Forever (Interface 16001). Display only.
 
-## Funktionen
-- Name und Art der Instanz (Dungeon, Schlachtzug, Schlachtfeld …), Gruppengröße, Kampfstatus, ob du die Gruppe leitest
-- Menü `•••`: Einstellungen, Sperren/Entsperren, Ein-/Ausklappen, Testmodus, Ausblenden
-- Einstellungen: Sprache, Größe, Fenstersperre; Position wird gespeichert
+> Status: 0.1.0, in development, not yet released. Not yet tested in game since the rework.
 
-## Befehle
-`/pd`, `/patidungeon` — ohne Zusatz ein-/ausblenden; `show`, `hide`, `test`, `lock`, `unlock`, `reset` (Position),
-`settings`, `debug`, `version`.
+## Features
+- Instance name and type (dungeon, raid, battleground …), group size, combat state, whether you lead the group
+- ••• menu: Settings, Lock, Collapse, Test Mode, Hide. Settings: language, scale, lock.
+  Languages: English, Deutsch (others fall back to English)
 
-Gemeinsame Oberfläche: PaTiShared UI (eingebettet in `Shared/`, kein separates Addon nötig).
+## Installation
+1. Download the release zip (`PaTiDungeon-<version>.zip`).
+2. Unpack it and copy the folder `PaTiDungeon` into `World of Warcraft/<client>/Interface/AddOns/`.
+3. Start WoW and enable PaTiDungeon in the AddOns list.
+
+## First steps
+- Enter a dungeon or join a group — the window updates by itself
+- `/pd test` shows example data
+
+## Commands
+`/pd` or `/patidungeon` — alone: show/hide · `settings` · `test` · `show` · `hide` · `lock` · `unlock` ·
+`reset` (position) · `debug` · `version`
