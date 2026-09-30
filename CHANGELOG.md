@@ -5,9 +5,9 @@ History before this file: `git log`.
 
 ## [Unreleased]
 ### Added
-- Window settings (PaTiShared): panel opacity 30–100 % (default 75 %, the header stays opaque) and snapping to other
-  PaTi windows while dragging (on by default; never in combat). The window registers itself for the optional
-  PaTiSuite control panel, which shows/hides it with this addon's own rules.
+- Window settings (PaTiShared): panel opacity 30–100 % (default 75 %, the header stays opaque). The window registers
+  itself for the optional PaTiSuite control panel, which shows/hides it with this addon's own rules. (Snapping to
+  other PaTi windows was tried and removed again: it did not work in the client.)
 - AddOns list icon from the PaTiSuite icon set (`Media/icon.tga`, `## IconTexture`); platform images in `assets/`.
 - MIT license (`LICENSE`, not part of the release zip).
 - PaTiShared window with ••• menu (Settings, Lock/Unlock, Collapse/Expand, Test Mode, Hide), settings modal
