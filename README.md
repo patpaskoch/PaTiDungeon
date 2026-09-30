@@ -22,6 +22,7 @@ Instance, group and combat status at a glance, for World of Warcraft: Forever (I
 
 ## Settings
 `/pd settings` or ••• → Settings: language, scale, window lock.
+- **Window:** panel opacity (30–100 %) and snapping to other PaTi windows while dragging
 
 ## Commands
 `/pd` or `/patidungeon` — alone: show/hide · `settings` · `test` · `show` · `hide` · `lock` · `unlock` ·
