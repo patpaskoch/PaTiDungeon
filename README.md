@@ -11,6 +11,26 @@ Instance, group and combat status at a glance, for World of Warcraft: Forever (I
 - ••• menu: Settings, Lock, Collapse, Test Mode, Hide. Settings: language, scale, lock.
   Languages: English, Deutsch (others fall back to English)
 
+## PaTiSuite
+
+This addon is part of the **PaTiSuite** — a collection of small addons for World of Warcraft: Forever.
+Each one is installed on its own and works on its own; none of them is needed by another.
+
+- [PaTiSuite](https://github.com/patpaskoch/PaTiSuite) – optional control panel to show and hide the PaTi windows
+- [PaTiHeal](https://github.com/patpaskoch/PaTiHeal) – healer party frames and click casting
+- [PaTiAuras](https://github.com/patpaskoch/PaTiAuras) – buff, aura and proc watcher
+- [PaTiTank](https://github.com/patpaskoch/PaTiTank) – tank HUD and aggro monitor
+- [PaTiGroup](https://github.com/patpaskoch/PaTiGroup) – raid markers, ready check and pull timer
+- [PaTiQuest](https://github.com/patpaskoch/PaTiQuest) – selected quest and its objectives
+- **PaTiDungeon** – instance, group and combat status *(this addon)*
+- [PaTiAlerts](https://github.com/patpaskoch/PaTiAlerts) – one window for open problems
+
+### Goes well with (optional)
+
+- [PaTiQuest](https://github.com/patpaskoch/PaTiQuest) – your selected quest and its objectives
+- [PaTiGroup](https://github.com/patpaskoch/PaTiGroup) – manual group tools: raid markers, ready check, pull timer
+- [PaTiSuite](https://github.com/patpaskoch/PaTiSuite) – shows and hides this window together with the other PaTi windows
+
 ## Installation
 1. Download the release zip (`PaTiDungeon-<version>.zip`).
 2. Unpack it and copy the folder `PaTiDungeon` into `World of Warcraft/<client>/Interface/AddOns/`.
@@ -27,6 +47,10 @@ Instance, group and combat status at a glance, for World of Warcraft: Forever (I
 ## Commands
 `/pd` or `/patidungeon` — alone: show/hide · `settings` · `test` · `show` · `hide` · `lock` · `unlock` ·
 `reset` (position) · `debug` · `version`
+
+## Development
+
+Architecture, tests and engineering rules of the suite: [PaTiAdmin](https://github.com/patpaskoch/PaTiAdmin). PaTiAdmin is not a WoW addon — players do not install it. The shared UI code (PaTiShared) is already embedded in this addon's `Shared/` folder; there is nothing extra to install.
 
 ## License
 MIT — see [LICENSE](LICENSE). Copyright (c) 2026 Patrick Koch.
