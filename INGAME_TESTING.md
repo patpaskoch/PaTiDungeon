@@ -23,7 +23,9 @@ Scope: Instanz (Name, Typ), Gruppengröße, Kampfstatus, Gruppenleitung. Keine B
 
 - [ ] PT-DUNGEON-001 Fresh Install aus dem Release-ZIP: genau ein Ordner `PaTiDungeon/`, Addon lädt allein
 - [ ] PT-DUNGEON-002 PaTiDungeon erscheint in der AddOn-Liste mit Beschreibung
-- [ ] PT-DUNGEON-003 Icon in der AddOn-Liste korrekt, keine weiße oder fehlende Textur
+- [x] PT-DUNGEON-003 Icon in der AddOn-Liste korrekt, keine weiße oder fehlende Textur
+  - ✅ VERIFIED 2026-10-02
+  - Owner: die Icons erscheinen im Spiel in der AddOn-Liste korrekt.
 - [ ] PT-DUNGEON-004 Login ohne Lua-Fehler
 - [ ] PT-DUNGEON-005 `/reload` ohne Lua-Fehler
 
