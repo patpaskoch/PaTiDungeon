@@ -14,6 +14,7 @@ History before this file: `git log`.
   (language, scale, lock), `/pd settings, reset, debug, version`; `/pd` alone shows/hides the window.
 - English texts, German translation; instance types are shown with a translated name instead of the raw API word.
 ### Changed
+- The window can also be moved in combat (it has no secure buttons; PaTiShared `SetCombatMovable`, hardening 2026-10-02). A broken saved position falls back to the default instead of breaking the login.
 - AddOns list description in English with a German translation (`## Notes-deDE`); README rewritten for players
   (features, installation, first steps, commands, known limitations).
 - New PaTiShared look instead of the legacy panel (gear, chevron, close button).

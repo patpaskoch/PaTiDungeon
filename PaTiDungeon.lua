@@ -35,6 +35,7 @@ end
 -- Window ---------------------------------------------------------------------------------------
 
 local window = UI.CreateWindow("PaTiDungeonFrame", "PaTiDungeon", WIDTH, HEIGHT)
+window:SetCombatMovable(true) -- no secure children: may be dragged in combat too (PaTiShared)
 local body = window:CreateFontString(nil, "OVERLAY", UI.Fonts.Text)
 body:SetPoint("TOPLEFT", PAD + 2, -UI.Sizes.HeaderHeight - UI.Spacing.SM)
 body:SetPoint("BOTTOMRIGHT", -PAD, PAD)
