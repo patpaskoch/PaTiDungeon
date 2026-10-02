@@ -19,6 +19,7 @@ History before this file: `git log`.
 - New PaTiShared look instead of the legacy panel (gear, chevron, close button).
 - Settings in PaTiDungeonDB get a schema; the 0.1.0 position and lock state are kept.
 ### Fixed
+- Hardening: a broken SavedVariables save (not a table, a broken schema or scale) no longer breaks the login; only the broken value is replaced, every valid setting (also `false`) stays, and the migration is idempotent (tests/robustness_spec.lua).
 - Settings: the first section title showed the key "GENERAL" (no text for it); now "General" / "Allgemein" (FOLLOW_UPS F30).
 - The addon did not load: the TOC listed both Lua files on one line with a literal `` `r`n `` between them.
 - Instance name, type, group size and flags are checked for restricted (secret) values before use (`Logic.Status`).
