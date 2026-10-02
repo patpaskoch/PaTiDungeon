@@ -4,6 +4,7 @@ ns.Locales = ns.Locales or {}
 local L = ns.Locales.deDE or {}
 ns.Locales.deDE = L
 
+L.GENERAL = "Allgemein"
 L.NOT_IN_INSTANCE = "Nicht in einer Instanz"
 L.UNKNOWN_INSTANCE = "Unbekannte Instanz"
 L.TYPE = "Typ: %s"

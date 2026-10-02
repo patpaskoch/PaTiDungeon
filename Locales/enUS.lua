@@ -4,6 +4,7 @@ ns.Locales = ns.Locales or {}
 local L = ns.Locales.enUS or {}
 ns.Locales.enUS = L
 
+L.GENERAL = "General"
 L.NOT_IN_INSTANCE = "Not in an instance"
 L.UNKNOWN_INSTANCE = "Unknown instance"
 L.TYPE = "Type: %s"
