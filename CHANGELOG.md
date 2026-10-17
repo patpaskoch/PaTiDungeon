@@ -5,6 +5,7 @@ History before this file: `git log`.
 
 ## [Unreleased]
 ### Added
+- Hand-drawn dungeon map (owner 2026-10-17): a grid in the window where you paint the rooms and corridors you have explored, with marks for bosses, chests, dangers and the entrance (raid target icons). One map per instance (by instance ID), saved per character in `sketches`; Restore Defaults keeps the maps. Right click erases, "Clear" needs a second click. ••• → Show map. The client gives addons no position inside instances, so the map cannot draw itself.
 - Themes (owner wish 2026-10-03): Settings → Window → Theme — Default (the PaTi look as before), WoForever (warm brown, gold/bronze) or Dracula (dark, purple/pink/cyan accents). Colours only; layout, secure buttons and behaviour are unchanged. Saved per character in this addon (`theme`, unknown values → Default); Restore Defaults returns to Default. PaTiSuite can switch all PaTi windows at once.
 - Window settings (PaTiShared): panel opacity 30–100 % (default 75 %, the header stays opaque). The window registers
   itself for the optional PaTiSuite control panel, which shows/hides it with this addon's own rules. (Snapping to
@@ -30,4 +31,4 @@ History before this file: `git log`.
 - Group size, leader and combat lines (owner 2026-10-17): PaTiGroup shows the group, WoW itself shows combat. The window is smaller and only shows the instance name and type.
 - `PaTiSharedPanel.lua` (legacy shared panel global).
 ### Known Issues
-- Not tested in game yet (instance/zone changes).
+- Not tested in game yet (instance/zone changes, the drawn map).

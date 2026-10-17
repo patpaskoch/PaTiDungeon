@@ -8,6 +8,10 @@ Instance name and type at a glance, for World of Warcraft: Forever (Interface 16
 
 ## Features
 - Instance name and type (dungeon, raid, battleground …). Group members and roles: PaTiGroup
+- **Your own dungeon map:** draw the rooms and corridors you have explored on a grid, and mark bosses (skull),
+  chests (star), dangers (cross) and the entrance (triangle). Every dungeon keeps its own map. The game tells addons
+  nothing about your position inside a dungeon, so the map does not draw itself: you draw it. Tip: put the window
+  next to the minimap.
 - ••• menu: Settings, Lock, Collapse, Test Mode, Hide. Settings: language, scale, lock.
   Languages: English, Deutsch (others fall back to English)
 
@@ -41,6 +45,8 @@ Each one is installed on its own and works on its own; none of them is needed by
 
 ## First steps
 - Enter a dungeon — the window updates by itself
+- Pick a tool above the grid; left click paints (hold to paint along), right click erases. "Clear" needs two clicks.
+  ••• → Show map hides or shows the grid.
 - `/pd test` shows example data
 
 ## Settings

@@ -8,7 +8,7 @@ Diese Datei dokumentiert ausschließlich Tests im echten WoW-Client.
 Automatisierte Tests, CI und Code Review zählen NICHT als Ingame-Verifikation.
 Regeln und Eintragen von Ergebnissen: [PaTiAdmin/docs/TESTING.md](https://github.com/patpaskoch/PaTiAdmin/blob/main/docs/TESTING.md#in-game-test-files).
 
-Scope: Instanz (Name, Typ). Gruppengröße, Kampfstatus und Gruppenleitung entfernt (2026-10-17). Keine Boss-, Loot- oder Dungeonquest-Funktionen.
+Scope: Instanz (Name, Typ) und selbst gezeichnete Karte pro Instanz. Gruppengröße, Kampfstatus und Gruppenleitung entfernt (2026-10-17). Keine Boss-, Loot- oder Dungeonquest-Funktionen.
 
 ## Legende
 
@@ -74,7 +74,23 @@ Scope: Instanz (Name, Typ). Gruppengröße, Kampfstatus und Gruppenleitung entfe
 - ~~PT-DUNGEON-058 Kampfende: Kampfstatus wechselt zurück~~
   - RETIRED 2026-10-17 – Anzeige entfernt (Owner: PaTiGroup zeigt die Gruppe, WoW den Kampf)
 - [ ] PT-DUNGEON-059 Nach `/reload` in einer Instanz sofort richtige Anzeige
-- [ ] PT-DUNGEON-073 Fenster zeigt nur Instanzname und Typ; Höhe passt, kein leerer Bereich unten, nichts abgeschnitten
+- [ ] PT-DUNGEON-073 Karte ausgeblendet (••• → Karte anzeigen): Fenster zeigt nur Instanzname und Typ; Höhe passt, kein leerer Bereich unten, nichts abgeschnitten
+
+## Karte (selbst gezeichnet)
+
+- [ ] PT-DUNGEON-074 Fenster zeigt unter Name/Typ die Werkzeugleiste und das Raster; nichts ragt über den Rand
+- [ ] PT-DUNGEON-075 Außerhalb einer Instanz: Hinweis „Betritt einen Dungeon …“, kein Raster
+- [ ] PT-DUNGEON-076 Im Dungeon: Linksklick malt ein Feld, gedrückt halten malt beim Ziehen weiter; die Felder liegen genau unter der Maus
+- [ ] PT-DUNGEON-077 Rechtsklick radiert (auch mit gewähltem Boss-Werkzeug); Radier-Werkzeug radiert mit Linksklick
+- [ ] PT-DUNGEON-078 Boss, Truhe, Gefahr, Eingang setzen: Symbol (Totenkopf, Stern, Kreuz, Dreieck) erscheint; Boden darüberziehen lässt das Symbol stehen
+- [ ] PT-DUNGEON-079 Werkzeug-Tooltips erklären die Bedienung; gewähltes Werkzeug ist hervorgehoben
+- [ ] PT-DUNGEON-080 „Leeren“: erster Klick zeigt „Sicher?“, zweiter Klick leert; Maus weg setzt zurück
+- [ ] PT-DUNGEON-081 Karte bleibt nach `/reload` und Relog; ein anderer Dungeon hat eine eigene, leere Karte; zurück im ersten Dungeon ist die alte Karte wieder da
+- [ ] PT-DUNGEON-082 ••• → Karte anzeigen blendet das Raster aus/ein, Fensterhöhe passt; Zustand bleibt nach `/reload`
+- [ ] PT-DUNGEON-083 Testmodus zeigt eine Beispielkarte; Malen ändert dort nichts
+- [ ] PT-DUNGEON-084 Zeichnen im Kampf: kein Lua-Fehler, keine Blockiert-Meldung; Fenster mit anderer Skalierung: Felder liegen weiter unter der Maus
+- [ ] PT-DUNGEON-085 „Standard wiederherstellen“ lässt die gezeichneten Karten stehen
+- [ ] PT-DUNGEON-086 Themes: Raster und Felder in allen drei Themes gut sichtbar
 
 ## Combat / Sicherheit
 

@@ -1,7 +1,7 @@
 ## Interface: 16001
 ## Title: PaTiDungeon
-## Notes: Instance name and type at a glance
-## Notes-deDE: Instanzname und -typ auf einen Blick
+## Notes: Instance name and type, and your own hand-drawn dungeon map
+## Notes-deDE: Instanzname und -typ und deine selbst gezeichnete Dungeonkarte
 ## Author: PaTi
 ## Version: 0.1.0
 ## IconTexture: Interface\AddOns\PaTiDungeon\Media\icon
@@ -11,4 +11,5 @@ Shared\Shared.xml
 Locales\enUS.lua
 Locales\deDE.lua
 Logic.lua
+Sketch.lua
 PaTiDungeon.lua

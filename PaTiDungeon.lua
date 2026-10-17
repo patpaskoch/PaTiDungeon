@@ -1,13 +1,32 @@
--- PaTiDungeon: instance status (name, type). Display only; no secure frames.
+-- PaTiDungeon: instance status (name, type) and a hand-drawn map per instance. Display only; no secure frames.
 -- Group and combat lines removed (owner 2026-10-17): PaTiGroup shows the people, WoW itself shows combat.
 local addonName, ns = ...
-local UI, L, Logic = ns.UI, ns.UI.L, ns.Logic
+local UI, L, Logic, Sketch = ns.UI, ns.UI.L, ns.Logic, ns.Sketch
 
 local DB
 local testMode = false
 
-local WIDTH, HEIGHT, PAD = 280, 80, UI.Spacing.MD -- two text lines below the header
+local PAD = UI.Spacing.MD
+local WIDTH = Sketch.WIDTH + 2 * PAD
+local TEXT_HEIGHT = 30 -- two text lines: instance name, type
+local HEIGHT = UI.Sizes.HeaderHeight + UI.Spacing.SM + TEXT_HEIGHT + PAD
+local MAP_HEIGHT = Sketch.HEIGHT + UI.Spacing.SM
 local TEST_STATUS = { inInstance = true, typeKey = "TYPE_PARTY" }
+
+-- Test mode: a short corridor into a room with a boss, read only (never saved).
+local function testSketch()
+    local sketch = {}
+    for col = 3, 14 do sketch[Logic.CellIndex(col, 11)] = "floor" end
+    for row = 6, 16 do
+        for col = 15, 22 do sketch[Logic.CellIndex(col, row)] = "floor" end
+    end
+    sketch[Logic.CellIndex(3, 11)] = "exit"
+    sketch[Logic.CellIndex(19, 8)] = "boss"
+    sketch[Logic.CellIndex(21, 15)] = "loot"
+    sketch[Logic.CellIndex(10, 11)] = "danger"
+    return sketch
+end
+local TEST_SKETCH = testSketch()
 
 local function say(key, ...)
     print("|cff68caffPaTiDungeon:|r " .. L[key]:format(...))
@@ -22,12 +41,23 @@ end
 
 -- API adapter: raw values, normalised by Logic.Status (which checks for secret values first).
 local function readStatus()
-    local name, instanceType = GetInstanceInfo()
+    local name, instanceType, _, _, _, _, _, instanceID = GetInstanceInfo()
     return Logic.Status({
         inInstance = IsInInstance(),
         name = name,
         instanceType = instanceType,
+        instanceID = instanceID,
     }, isSecret)
+end
+
+-- The sketch of the current instance (created on first use), the example in test mode, nil outside an instance.
+local function currentSketch()
+    if testMode then return TEST_SKETCH end
+    if not DB then return nil end
+    local key = Logic.SketchKey(readStatus())
+    if not key then return nil end
+    DB.sketches[key] = DB.sketches[key] or {}
+    return DB.sketches[key]
 end
 
 -- Window ---------------------------------------------------------------------------------------
@@ -36,9 +66,17 @@ local window = UI.CreateWindow("PaTiDungeonFrame", "PaTiDungeon", WIDTH, HEIGHT)
 window:SetCombatMovable(true) -- no secure children: may be dragged in combat too (PaTiShared)
 local body = window:CreateFontString(nil, "OVERLAY", UI.Fonts.Text)
 body:SetPoint("TOPLEFT", PAD + 2, -UI.Sizes.HeaderHeight - UI.Spacing.SM)
-body:SetPoint("BOTTOMRIGHT", -PAD, PAD)
+body:SetPoint("TOPRIGHT", -PAD, -UI.Sizes.HeaderHeight - UI.Spacing.SM)
+body:SetHeight(TEXT_HEIGHT)
 body:SetJustifyH("LEFT")
 body:SetJustifyV("TOP")
+
+local map = Sketch.Create(window, {
+    get = currentSketch,
+    readOnly = function() return testMode end,
+    emptyText = "MAP_NO_INSTANCE",
+})
+map:SetPoint("TOPLEFT", body, "BOTTOMLEFT", -2, -UI.Spacing.SM)
 
 local function paint()
     if not DB then return end
@@ -52,11 +90,14 @@ local function paint()
         title,
         L.TYPE:format(typeText),
     }, "\n"))
+    if map:IsShown() then map:Refresh() end
 end
 
 local function applyLayout()
     body:SetShown(not DB.collapsed)
-    window:SetHeight(DB.collapsed and UI.Sizes.HeaderHeight or HEIGHT)
+    map:SetShown(not DB.collapsed and DB.showMap)
+    local height = HEIGHT + (DB.showMap and MAP_HEIGHT or 0)
+    window:SetHeight(DB.collapsed and UI.Sizes.HeaderHeight or height)
     window:SetTestMode(testMode)
 end
 
@@ -110,6 +151,13 @@ end
 local function toggleCollapsed()
     DB.collapsed = not DB.collapsed
     applyLayout()
+    paint()
+end
+
+local function toggleMap()
+    DB.showMap = not DB.showMap
+    applyLayout()
+    paint()
 end
 
 local function setShown(shown, quiet) -- no secure frames: fine in combat
@@ -126,6 +174,12 @@ local function resetPosition()
     window:Attach(DB, -330, 160)
 end
 
+local function count(entries)
+    local total = 0
+    for _ in pairs(entries or {}) do total = total + 1 end
+    return total
+end
+
 local function printDebug()
     local version, build, _, interface = GetBuildInfo()
     local status = readStatus()
@@ -136,6 +190,8 @@ local function printDebug()
             tostring(interface), GetLocale(), UI.GetLanguage()),
         ("In instance %s · type %s · test mode %s"):format(tostring(status.inInstance), tostring(status.rawType),
             testMode and "on" or "off"),
+        ("Instance ID %s · map key %s · drawn cells %d · maps saved %d"):format(tostring(status.instanceID),
+            tostring(Logic.SketchKey(status)), count(currentSketch()), count(DB.sketches)),
     }) do print("  " .. line) end
 end
 
@@ -164,6 +220,7 @@ window:SetMenu(function()
     return {
         { text = "SETTINGS", onClick = openSettings },
         { text = window:IsLocked() and "UNLOCK" or "LOCK", onClick = function() window:SetLocked(not window:IsLocked()) end },
+        { text = "SHOW_MAP", checked = DB.showMap, onClick = toggleMap },
         { text = DB.collapsed and "EXPAND" or "COLLAPSE", onClick = toggleCollapsed },
         { text = "TEST_MODE", checked = testMode, onClick = toggleTestMode },
         { text = "HIDE", onClick = function() setShown(false) end },
