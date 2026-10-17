@@ -39,7 +39,7 @@ function Logic.RestoreDefaults(db)
     return db
 end
 
--- raw: { inInstance, name, instanceType, members, inCombat, isLeader } straight from the API.
+-- raw: { inInstance, name, instanceType } straight from the API.
 -- Returns plain, readable values; anything secret or of the wrong type becomes "unknown" (nil / 0 / false)
 -- before it is compared (secret-value rule).
 function Logic.Status(raw, isSecret)
@@ -56,9 +56,6 @@ function Logic.Status(raw, isSecret)
         inInstance = flag(raw.inInstance),
         name = readable(raw.name, "string"),
         typeKey = nil,
-        members = readable(raw.members, "number") or 0,
-        inCombat = flag(raw.inCombat),
-        isLeader = flag(raw.isLeader),
     }
     if status.name == "" then status.name = nil end
     local instanceType = readable(raw.instanceType, "string")

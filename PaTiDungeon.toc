@@ -1,7 +1,7 @@
 ## Interface: 16001
 ## Title: PaTiDungeon
-## Notes: Instance, group and combat status at a glance
-## Notes-deDE: Instanz-, Gruppen- und Kampfstatus auf einen Blick
+## Notes: Instance name and type at a glance
+## Notes-deDE: Instanzname und -typ auf einen Blick
 ## Author: PaTi
 ## Version: 0.1.0
 ## IconTexture: Interface\AddOns\PaTiDungeon\Media\icon

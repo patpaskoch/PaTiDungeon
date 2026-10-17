@@ -27,6 +27,7 @@ History before this file: `git log`.
 - Instance name, type, group size and flags are checked for restricted (secret) values before use (`Logic.Status`).
 - Saving defaults into the saved variables on every login (`x = x or -330`) is gone.
 ### Removed
+- Group size, leader and combat lines (owner 2026-10-17): PaTiGroup shows the group, WoW itself shows combat. The window is smaller and only shows the instance name and type.
 - `PaTiSharedPanel.lua` (legacy shared panel global).
 ### Known Issues
-- Not tested in game yet (instance/zone changes, group changes, combat).
+- Not tested in game yet (instance/zone changes).

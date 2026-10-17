@@ -1,12 +1,13 @@
--- PaTiDungeon: instance, group and combat status. Display only; no secure frames.
+-- PaTiDungeon: instance status (name, type). Display only; no secure frames.
+-- Group and combat lines removed (owner 2026-10-17): PaTiGroup shows the people, WoW itself shows combat.
 local addonName, ns = ...
 local UI, L, Logic = ns.UI, ns.UI.L, ns.Logic
 
 local DB
 local testMode = false
 
-local WIDTH, HEIGHT, PAD = 280, 132, UI.Spacing.MD
-local TEST_STATUS = { inInstance = true, typeKey = "TYPE_PARTY", members = 5, inCombat = false, isLeader = true }
+local WIDTH, HEIGHT, PAD = 280, 80, UI.Spacing.MD -- two text lines below the header
+local TEST_STATUS = { inInstance = true, typeKey = "TYPE_PARTY" }
 
 local function say(key, ...)
     print("|cff68caffPaTiDungeon:|r " .. L[key]:format(...))
@@ -26,9 +27,6 @@ local function readStatus()
         inInstance = IsInInstance(),
         name = name,
         instanceType = instanceType,
-        members = GetNumGroupMembers and GetNumGroupMembers() or 0,
-        inCombat = UnitAffectingCombat("player"),
-        isLeader = UnitIsGroupLeader("player"),
     }, isSecret)
 end
 
@@ -53,9 +51,6 @@ local function paint()
     body:SetText(table.concat({
         title,
         L.TYPE:format(typeText),
-        L.GROUP:format(status.members),
-        L.COMBAT:format(status.inCombat and L.YES or L.NO),
-        L.LEADER:format(status.isLeader and L.LEADER_YOU or L.LEADER_OTHER),
     }, "\n"))
 end
 
@@ -139,9 +134,8 @@ local function printDebug()
         ("Addon %s %s · PaTiShared UI %s"):format(addonName, addonVersion(), tostring(UI.VERSION)),
         ("WoW %s (build %s, interface %s) · locale %s · UI language %s"):format(tostring(version), tostring(build),
             tostring(interface), GetLocale(), UI.GetLanguage()),
-        ("In instance %s · type %s · members %d · combat %s · leader %s · test mode %s"):format(
-            tostring(status.inInstance), tostring(status.rawType), status.members, tostring(status.inCombat),
-            tostring(status.isLeader), testMode and "on" or "off"),
+        ("In instance %s · type %s · test mode %s"):format(tostring(status.inInstance), tostring(status.rawType),
+            testMode and "on" or "off"),
     }) do print("  " .. line) end
 end
 
@@ -176,11 +170,10 @@ window:SetMenu(function()
     }
 end)
 
--- Events (all rare: zone, group, combat start/end) — a full repaint is cheap here --------------
+-- Events (all rare: login, zone changes) — a full repaint is cheap here --------------------------
 
 local events = CreateFrame("Frame")
-for _, event in ipairs({ "PLAYER_LOGIN", "PLAYER_ENTERING_WORLD", "GROUP_ROSTER_UPDATE", "ZONE_CHANGED_NEW_AREA",
-    "PLAYER_REGEN_DISABLED", "PLAYER_REGEN_ENABLED" }) do
+for _, event in ipairs({ "PLAYER_LOGIN", "PLAYER_ENTERING_WORLD", "ZONE_CHANGED_NEW_AREA" }) do
     events:RegisterEvent(event)
 end
 

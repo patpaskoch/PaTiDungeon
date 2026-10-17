@@ -33,22 +33,16 @@ describe("Logic.RestoreDefaults", function()
 end)
 
 describe("Logic.Status", function()
-    it("normalises a dungeon in a group", function()
-        local status = load().Status({ inInstance = true, name = "Todesminen", instanceType = "party", members = 5,
-            inCombat = false, isLeader = true }, never)
+    it("normalises a dungeon", function()
+        local status = load().Status({ inInstance = true, name = "Todesminen", instanceType = "party" }, never)
         assert.is_true(status.inInstance)
         assert.equal("Todesminen", status.name)
         assert.equal("TYPE_PARTY", status.typeKey)
-        assert.equal(5, status.members)
-        assert.is_false(status.inCombat)
-        assert.is_true(status.isLeader)
     end)
 
     it("accepts 1/nil flags from older client APIs like 0.1.0 did", function()
-        local status = load().Status({ inInstance = 1, inCombat = 1, isLeader = nil }, never)
+        local status = load().Status({ inInstance = 1 }, never)
         assert.is_true(status.inInstance)
-        assert.is_true(status.inCombat)
-        assert.is_false(status.isLeader)
     end)
 
     it("keeps an unknown instance type as raw text without a key", function()
@@ -60,14 +54,10 @@ describe("Logic.Status", function()
     it("turns secret, empty or missing values into unknown", function()
         local secret = {}
         local isSecret = function(value) return rawequal(value, secret) end
-        local status = load().Status({ inInstance = secret, name = "", instanceType = secret, members = secret,
-            inCombat = nil, isLeader = secret }, isSecret)
+        local status = load().Status({ inInstance = secret, name = "", instanceType = secret }, isSecret)
         assert.is_false(status.inInstance)
         assert.is_nil(status.name)
         assert.is_nil(status.typeKey)
-        assert.equal(0, status.members)
-        assert.is_false(status.inCombat)
-        assert.is_false(status.isLeader)
     end)
 end)
 

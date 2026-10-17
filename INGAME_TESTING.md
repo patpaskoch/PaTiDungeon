@@ -8,7 +8,7 @@ Diese Datei dokumentiert ausschließlich Tests im echten WoW-Client.
 Automatisierte Tests, CI und Code Review zählen NICHT als Ingame-Verifikation.
 Regeln und Eintragen von Ergebnissen: [PaTiAdmin/docs/TESTING.md](https://github.com/patpaskoch/PaTiAdmin/blob/main/docs/TESTING.md#in-game-test-files).
 
-Scope: Instanz (Name, Typ), Gruppengröße, Kampfstatus, Gruppenleitung. Keine Boss-, Loot- oder Dungeonquest-Funktionen.
+Scope: Instanz (Name, Typ). Gruppengröße, Kampfstatus und Gruppenleitung entfernt (2026-10-17). Keine Boss-, Loot- oder Dungeonquest-Funktionen.
 
 ## Legende
 
@@ -57,18 +57,24 @@ Scope: Instanz (Name, Typ), Gruppengröße, Kampfstatus, Gruppenleitung. Keine B
 - [ ] PT-DUNGEON-042 zhCN/zhTW/koKR: Englisch als Rückfall, keine Schlüsselnamen oder Kästchen
 - [ ] PT-DUNGEON-043 Keine abgeschnittenen wichtigen Texte (deDE), lange Instanznamen
 
-## Instanz / Gruppe / Kampf
+## Instanz
 
 - [ ] PT-DUNGEON-050 Außerhalb einer Instanz: richtige Anzeige (keine Instanz)
 - [ ] PT-DUNGEON-051 Dungeon betreten: Name und Typ „Dungeon“ erscheinen
 - [ ] PT-DUNGEON-052 Dungeon verlassen: Anzeige wechselt zurück
 - [ ] PT-DUNGEON-053 Andere Instanztypen (Schlachtzug, Schlachtfeld) werden richtig benannt, falls getestet
-- [ ] PT-DUNGEON-054 Gruppengröße stimmt (solo, Gruppe)
-- [ ] PT-DUNGEON-055 Gruppenänderung (Beitritt/Verlassen) aktualisiert die Anzeige
-- [ ] PT-DUNGEON-056 Gruppenleitung wird richtig angezeigt, auch nach Leiterwechsel
-- [ ] PT-DUNGEON-057 Kampfbeginn: Kampfstatus wechselt
-- [ ] PT-DUNGEON-058 Kampfende: Kampfstatus wechselt zurück
-- [ ] PT-DUNGEON-059 Nach `/reload` in einer Instanz / Gruppe sofort richtige Anzeige
+- ~~PT-DUNGEON-054 Gruppengröße stimmt (solo, Gruppe)~~
+  - RETIRED 2026-10-17 – Anzeige entfernt (Owner: PaTiGroup zeigt die Gruppe, WoW den Kampf)
+- ~~PT-DUNGEON-055 Gruppenänderung (Beitritt/Verlassen) aktualisiert die Anzeige~~
+  - RETIRED 2026-10-17 – Anzeige entfernt (Owner: PaTiGroup zeigt die Gruppe, WoW den Kampf)
+- ~~PT-DUNGEON-056 Gruppenleitung wird richtig angezeigt, auch nach Leiterwechsel~~
+  - RETIRED 2026-10-17 – Anzeige entfernt (Owner: PaTiGroup zeigt die Gruppe, WoW den Kampf)
+- ~~PT-DUNGEON-057 Kampfbeginn: Kampfstatus wechselt~~
+  - RETIRED 2026-10-17 – Anzeige entfernt (Owner: PaTiGroup zeigt die Gruppe, WoW den Kampf)
+- ~~PT-DUNGEON-058 Kampfende: Kampfstatus wechselt zurück~~
+  - RETIRED 2026-10-17 – Anzeige entfernt (Owner: PaTiGroup zeigt die Gruppe, WoW den Kampf)
+- [ ] PT-DUNGEON-059 Nach `/reload` in einer Instanz sofort richtige Anzeige
+- [ ] PT-DUNGEON-073 Fenster zeigt nur Instanzname und Typ; Höhe passt, kein leerer Bereich unten, nichts abgeschnitten
 
 ## Combat / Sicherheit
 

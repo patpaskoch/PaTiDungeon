@@ -2,12 +2,12 @@
 
 <img src="assets/icon-128.png" width="96" alt="PaTiDungeon icon">
 
-Instance, group and combat status at a glance, for World of Warcraft: Forever (Interface 16001). Display only.
+Instance name and type at a glance, for World of Warcraft: Forever (Interface 16001). Display only.
 
 > Status: 0.1.0, in development, not yet released. Not yet tested in game since the rework.
 
 ## Features
-- Instance name and type (dungeon, raid, battleground …), group size, combat state, whether you lead the group
+- Instance name and type (dungeon, raid, battleground …). Group members and roles: PaTiGroup
 - ••• menu: Settings, Lock, Collapse, Test Mode, Hide. Settings: language, scale, lock.
   Languages: English, Deutsch (others fall back to English)
 
@@ -24,7 +24,7 @@ Each one is installed on its own and works on its own; none of them is needed by
 - [PaTiGroup](https://github.com/patpaskoch/PaTiGroup) – party awareness: tank, healer, roles and the tank's target
 - [PaTiLead](https://github.com/patpaskoch/PaTiLead) – lead the group: raid markers, ready check and pull timer
 - [PaTiQuest](https://github.com/patpaskoch/PaTiQuest) – selected quest and its objectives
-- **PaTiDungeon** – instance, group and combat status *(this addon)*
+- **PaTiDungeon** – instance name and type *(this addon)*
 - [PaTiSocial](https://github.com/patpaskoch/PaTiSocial) – "Party Social": quick emote and message buttons
 - [PaTiAlerts](https://github.com/patpaskoch/PaTiAlerts) – one window for open problems
 
@@ -40,7 +40,7 @@ Each one is installed on its own and works on its own; none of them is needed by
 3. Start WoW and enable PaTiDungeon in the AddOns list.
 
 ## First steps
-- Enter a dungeon or join a group — the window updates by itself
+- Enter a dungeon — the window updates by itself
 - `/pd test` shows example data
 
 ## Settings
