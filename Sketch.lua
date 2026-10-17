@@ -16,12 +16,25 @@ local FLOOR_ALPHA, EMPTY_ALPHA = 0.6, 0.45
 local RAID_ICON = "Interface\\TargetingFrame\\UI-RaidTargetingIcon_%d"
 -- Blizzard raid target icons: skull, star, cross, triangle — every client has them.
 local MARK_ICONS = { boss = 8, loot = 1, danger = 7, exit = 4 }
-local TOOL_TIPS = { floor = "TOOL_FLOOR", boss = "TOOL_BOSS", loot = "TOOL_LOOT", danger = "TOOL_DANGER",
-    exit = "TOOL_EXIT", erase = "TOOL_ERASE" }
+-- Arrows (owner 2026-10-17): the minimap's player arrow, turned in 45° steps. It fills only the middle of its texture,
+-- so it is drawn larger than the raid icons.
+local ARROW_ICON = "Interface\\Minimap\\MinimapArrow"
+local ARROW_SIZE = CELL + 10
+local TOOL_TIPS = { floor = "TOOL_FLOOR", arrow = "TOOL_ARROW", boss = "TOOL_BOSS", loot = "TOOL_LOOT",
+    danger = "TOOL_DANGER", exit = "TOOL_EXIT", erase = "TOOL_ERASE" }
 
 local SIZE = Logic.SKETCH
 Sketch.WIDTH = SIZE.COLS * CELL
 Sketch.HEIGHT = TOOL_SIZE + UI.Spacing.SM + SIZE.ROWS * CELL
+
+-- Texture, size and rotation of a marked cell; nil for floor or empty. SetRotation turns counterclockwise.
+local function markLook(value)
+    local direction = Logic.ArrowDirection(value)
+    if direction then return ARROW_ICON, ARROW_SIZE, -direction * math.pi / 4 end
+    local icon = MARK_ICONS[value]
+    if icon then return RAID_ICON:format(icon), MARK_SIZE, 0 end
+    return nil
+end
 
 local function toolIcon(button, tool)
     if tool == "erase" then -- an × from two lines (the WoW font has no such glyph)
@@ -34,6 +47,10 @@ local function toolIcon(button, tool)
     if tool == "floor" then
         icon:SetTexture(UI.WHITE)
         UI.Paint(icon, "SetVertexColor", "Accent", FLOOR_ALPHA)
+    elseif tool == "arrow" then
+        icon:SetTexture(ARROW_ICON)
+        icon:SetPoint("TOPLEFT", 0, 0) -- the arrow fills only the middle of its texture
+        icon:SetPoint("BOTTOMRIGHT", 0, 0)
     else
         icon:SetTexture(RAID_ICON:format(MARK_ICONS[tool]))
     end
@@ -82,15 +99,20 @@ function Sketch.Create(parent, options)
         local value = sketch and sketch[index]
         local r, g, b = UI.Color(value and "Accent" or "PanelHover")
         cells[index]:SetColorTexture(r, g, b, value and FLOOR_ALPHA or EMPTY_ALPHA)
-        local mark = value and MARK_ICONS[value]
-        if mark and not marks[index] then
+        local texture, size, rotation
+        if value then texture, size, rotation = markLook(value) end
+        if texture and not marks[index] then
             marks[index] = canvas:CreateTexture(nil, "ARTWORK")
-            marks[index]:SetSize(MARK_SIZE, MARK_SIZE)
             marks[index]:SetPoint("CENTER", cells[index], "CENTER")
         end
-        if marks[index] then
-            marks[index]:SetShown(mark ~= nil)
-            if mark then marks[index]:SetTexture(RAID_ICON:format(mark)) end
+        local mark = marks[index]
+        if mark then
+            mark:SetShown(texture ~= nil)
+            if texture then
+                mark:SetTexture(texture)
+                mark:SetSize(size, size)
+                mark:SetRotation(rotation)
+            end
         end
     end
 

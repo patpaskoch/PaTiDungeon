@@ -31,3 +31,4 @@ L.TOOL_ERASE = "Erase: left click, hold to erase along (right click erases with 
 L.CLEAR_MAP = "Clear"
 L.CLEAR_CONFIRM = "Sure?"
 L.CLEAR_MAP_TIP = "Clears this dungeon's map. Click twice to confirm."
+L.TOOL_ARROW = "Arrow (the way you walked): a click sets an arrow pointing up, each further click on it turns it 45° clockwise. Right click erases."

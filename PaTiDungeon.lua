@@ -24,6 +24,8 @@ local function testSketch()
     sketch[Logic.CellIndex(19, 8)] = "boss"
     sketch[Logic.CellIndex(21, 15)] = "loot"
     sketch[Logic.CellIndex(10, 11)] = "danger"
+    sketch[Logic.CellIndex(6, 11)] = "arrow2" -- right, into the room
+    sketch[Logic.CellIndex(18, 13)] = "arrow1" -- up and right, towards the boss
     return sketch
 end
 local TEST_SKETCH = testSketch()

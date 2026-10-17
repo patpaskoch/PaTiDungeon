@@ -30,3 +30,4 @@ L.TOOL_ERASE = "Radieren: Linksklick, gedrückt halten zum Weiterradieren (Recht
 L.CLEAR_MAP = "Leeren"
 L.CLEAR_CONFIRM = "Sicher?"
 L.CLEAR_MAP_TIP = "Leert die Karte dieses Dungeons. Zum Bestätigen zweimal klicken."
+L.TOOL_ARROW = "Pfeil (der Weg, den du gelaufen bist): ein Klick setzt einen Pfeil nach oben, jeder weitere Klick darauf dreht ihn um 45° im Uhrzeigersinn. Rechtsklick radiert."

@@ -21,7 +21,21 @@ Logic.DEFAULTS = {
 -- A sketch is { [cell index] = value }; index = (row - 1) * COLS + col; value = "floor" or a mark.
 Logic.SKETCH = { COLS = 30, ROWS = 22 }
 Logic.MARKS = { boss = true, loot = true, danger = true, exit = true }
-Logic.TOOLS = { "floor", "boss", "loot", "danger", "exit", "erase" }
+Logic.TOOLS = { "floor", "arrow", "boss", "loot", "danger", "exit", "erase" }
+-- Arrows show the way you walked (owner 2026-10-17): "arrow0" (up) … "arrow7", clockwise in 45° steps.
+Logic.ARROWS = 8
+
+-- The direction 0-7 of an arrow cell, nil for anything else.
+function Logic.ArrowDirection(value)
+    local direction = type(value) == "string" and tonumber(value:match("^arrow(%d)$"))
+    if direction and direction < Logic.ARROWS then return direction end
+    return nil
+end
+
+-- A mark sits on a floor cell: boss, loot, danger, exit or an arrow.
+function Logic.IsMark(value)
+    return Logic.MARKS[value] == true or Logic.ArrowDirection(value) ~= nil
+end
 
 -- Instance types GetInstanceInfo reports and the locale key that names them.
 Logic.TYPE_KEYS = { none = "TYPE_NONE", party = "TYPE_PARTY", raid = "TYPE_RAID", pvp = "TYPE_PVP",
@@ -92,7 +106,7 @@ end
 local function validCell(index, value)
     local size = Logic.SKETCH
     return type(index) == "number" and index >= 1 and index <= size.COLS * size.ROWS and index % 1 == 0
-        and (value == "floor" or Logic.MARKS[value] == true)
+        and (value == "floor" or Logic.IsMark(value))
 end
 
 -- Saved sketches: keeps every valid cell of every sketch, drops anything a broken save could hold. Idempotent.
@@ -112,12 +126,20 @@ function Logic.CleanSketches(value)
 end
 
 -- One painted cell. "erase" empties it, "floor" paints it, a mark sets that mark (a marked cell counts as floor,
--- so dragging floor across it keeps the mark). Returns true when the cell changed (only then it is repainted).
+-- so dragging floor across it keeps the mark). "arrow" sets an arrow pointing up; on an arrow it turns it 45°
+-- clockwise. Returns true when the cell changed (only then it is repainted).
 function Logic.ApplyTool(sketch, index, tool)
     if not index then return false end
     local new
-    if tool == "floor" or Logic.MARKS[tool] then new = tool elseif tool ~= "erase" then return false end
-    if tool == "floor" and Logic.MARKS[sketch[index]] then return false end
+    if tool == "arrow" then
+        local direction = Logic.ArrowDirection(sketch[index])
+        new = "arrow" .. (direction and (direction + 1) % Logic.ARROWS or 0)
+    elseif tool == "floor" or Logic.MARKS[tool] then
+        new = tool
+    elseif tool ~= "erase" then
+        return false
+    end
+    if tool == "floor" and Logic.IsMark(sketch[index]) then return false end
     if sketch[index] == new then return false end
     sketch[index] = new
     return true

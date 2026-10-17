@@ -137,3 +137,32 @@ describe("Hand-drawn map (sketches)", function()
         assert.is_true(M.Migrate({}).showMap)
     end)
 end)
+
+describe("Map arrows", function()
+    it("a click sets an arrow up, each further click turns it 45° clockwise, after 8 it points up again", function()
+        local M = load()
+        local sketch = {}
+        assert.is_true(M.ApplyTool(sketch, 3, "arrow"))
+        assert.equal("arrow0", sketch[3])
+        for step = 1, 7 do
+            M.ApplyTool(sketch, 3, "arrow")
+            assert.equal("arrow" .. step, sketch[3])
+        end
+        M.ApplyTool(sketch, 3, "arrow")
+        assert.equal("arrow0", sketch[3])
+    end)
+
+    it("an arrow is a mark: floor keeps it, erase removes it, a boss replaces it; saved arrows survive cleaning", function()
+        local M = load()
+        local sketch = { [4] = "arrow2" }
+        assert.is_false(M.ApplyTool(sketch, 4, "floor"))
+        assert.equal("arrow2", sketch[4])
+        assert.is_true(M.ApplyTool(sketch, 4, "boss"))
+        assert.equal("boss", sketch[4])
+        assert.equal(2, M.ArrowDirection("arrow2"))
+        assert.is_nil(M.ArrowDirection("arrow8"))
+        assert.is_nil(M.ArrowDirection("boss"))
+        local db = M.Migrate({ sketches = { ["id:1"] = { [1] = "arrow7", [2] = "arrow9", [3] = "arrowX" } } })
+        assert.same({ ["id:1"] = { [1] = "arrow7" } }, db.sketches)
+    end)
+end)

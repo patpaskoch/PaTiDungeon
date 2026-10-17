@@ -91,6 +91,10 @@ Scope: Instanz (Name, Typ) und selbst gezeichnete Karte pro Instanz. Gruppengrö
 - [ ] PT-DUNGEON-084 Zeichnen im Kampf: kein Lua-Fehler, keine Blockiert-Meldung; Fenster mit anderer Skalierung: Felder liegen weiter unter der Maus
 - [ ] PT-DUNGEON-085 „Standard wiederherstellen“ lässt die gezeichneten Karten stehen
 - [ ] PT-DUNGEON-086 Themes: Raster und Felder in allen drei Themes gut sichtbar
+- [ ] PT-DUNGEON-087 Pfeil-Werkzeug: Klick setzt einen Pfeil nach oben, jeder weitere Klick dreht ihn um 45° (8 Richtungen,
+  auch schräg); Pfeil gut erkennbar und mittig auf dem Feld; Boden darüberziehen lässt ihn stehen, Rechtsklick radiert;
+  bleibt nach `/reload` in seiner Richtung
+  - Owner 2026-10-17: Pfeile für den Laufweg
 
 ## Combat / Sicherheit
 

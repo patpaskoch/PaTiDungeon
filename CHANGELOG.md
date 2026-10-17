@@ -5,6 +5,9 @@ History before this file: `git log`.
 
 ## [Unreleased]
 ### Added
+- Map arrows (owner 2026-10-17: "arrows for the way"): an arrow tool next to floor; a click sets an arrow pointing up,
+  each further click on it turns it 45° clockwise (8 directions, the minimap player arrow). Arrows are marks: dragging
+  floor keeps them, right click erases them. Saved as `arrow0`…`arrow7`.
 - Hand-drawn dungeon map (owner 2026-10-17): a grid in the window where you paint the rooms and corridors you have explored, with marks for bosses, chests, dangers and the entrance (raid target icons). One map per instance (by instance ID), saved per character in `sketches`; Restore Defaults keeps the maps. Right click erases, "Clear" needs a second click. ••• → Show map. The client gives addons no position inside instances, so the map cannot draw itself.
 - Themes (owner wish 2026-10-03): Settings → Window → Theme — Default (the PaTi look as before), WoForever (warm brown, gold/bronze) or Dracula (dark, purple/pink/cyan accents). Colours only; layout, secure buttons and behaviour are unchanged. Saved per character in this addon (`theme`, unknown values → Default); Restore Defaults returns to Default. PaTiSuite can switch all PaTi windows at once.
 - Window settings (PaTiShared): panel opacity 30–100 % (default 75 %, the header stays opaque). The window registers
