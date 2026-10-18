@@ -59,9 +59,15 @@ Scope: Instanz (Name, Typ) und selbst gezeichnete Karte pro Instanz. Gruppengrö
 
 ## Instanz
 
-- [ ] PT-DUNGEON-050 Außerhalb einer Instanz: richtige Anzeige (keine Instanz)
-- [ ] PT-DUNGEON-051 Dungeon betreten: Name und Typ „Dungeon“ erscheinen
-- [ ] PT-DUNGEON-052 Dungeon verlassen: Anzeige wechselt zurück
+- [x] PT-DUNGEON-050 Außerhalb einer Instanz: richtige Anzeige (keine Instanz)
+  - ✅ VERIFIED 2026-10-18
+  - Owner: in der Abhak-Liste als „Geht“ markiert
+- [x] PT-DUNGEON-051 Dungeon betreten: Name und Typ „Dungeon“ erscheinen
+  - ✅ VERIFIED 2026-10-18
+  - Owner: in der Abhak-Liste als „Geht“ markiert
+- [x] PT-DUNGEON-052 Dungeon verlassen: Anzeige wechselt zurück
+  - ✅ VERIFIED 2026-10-18
+  - Owner: in der Abhak-Liste als „Geht“ markiert
 - [ ] PT-DUNGEON-053 Andere Instanztypen (Schlachtzug, Schlachtfeld) werden richtig benannt, falls getestet
 - ~~PT-DUNGEON-054 Gruppengröße stimmt (solo, Gruppe)~~
   - RETIRED 2026-10-17 – Anzeige entfernt (Owner: PaTiGroup zeigt die Gruppe, WoW den Kampf)
@@ -73,7 +79,9 @@ Scope: Instanz (Name, Typ) und selbst gezeichnete Karte pro Instanz. Gruppengrö
   - RETIRED 2026-10-17 – Anzeige entfernt (Owner: PaTiGroup zeigt die Gruppe, WoW den Kampf)
 - ~~PT-DUNGEON-058 Kampfende: Kampfstatus wechselt zurück~~
   - RETIRED 2026-10-17 – Anzeige entfernt (Owner: PaTiGroup zeigt die Gruppe, WoW den Kampf)
-- [ ] PT-DUNGEON-059 Nach `/reload` in einer Instanz sofort richtige Anzeige
+- [x] PT-DUNGEON-059 Nach `/reload` in einer Instanz sofort richtige Anzeige
+  - ✅ VERIFIED 2026-10-18
+  - Owner: in der Abhak-Liste als „Geht“ markiert
 - [x] PT-DUNGEON-073 Karte ausgeblendet (••• → Karte anzeigen): Fenster zeigt nur Instanzname und Typ; Höhe passt, kein leerer Bereich unten, nichts abgeschnitten
   - ✅ VERIFIED 2026-10-17
   - Owner: „Rest der Zeichenkarte geht auch“ (Antwort auf PT-DUNGEON-073–086)
