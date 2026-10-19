@@ -5,6 +5,8 @@ History before this file: `git log`.
 
 ## [Unreleased]
 ### Added
+- Theme **Soft Fantasy** (PaTiShared, owner wish 2026-10-19): calm slate blue, grey and violet with a muted
+  lavender accent — the fourth choice in the settings and in PaTiSuite.
 - Map arrows (owner 2026-10-17: "arrows for the way"): an arrow tool next to floor; a click sets an arrow pointing up,
   each further click on it turns it 45° clockwise (8 directions, the minimap player arrow). Arrows are marks: dragging
   floor keeps them, right click erases them. Saved as `arrow0`…`arrow7`.
