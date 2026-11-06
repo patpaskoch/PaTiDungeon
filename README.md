@@ -2,23 +2,25 @@
 
 <img src="assets/icon-128.png" width="96" alt="PaTiDungeon icon">
 
+## Install
+
+**📥 [Download PaTiDungeon Beta](https://github.com/patpaskoch/PaTiDungeon/releases/download/v0.1.0-beta.1/PaTiDungeon-0.1.0-beta.1.zip)** · [Installation guide](#installation)
+
+*Installation-test preview — not yet a stable release.*
+
 ## What is PaTiDungeon?
 
-> **Installation-test beta available:** [Download the current ZIP from Releases](https://github.com/patpaskoch/PaTiDungeon/releases). This is an unverified preview for testing the installation, not a stable release.
+**Every dungeon is an adventure worth mapping.**
 
-Instance name and type at a glance, for World of Warcraft: Forever (Interface 16001). Display only.
-
-> Status: 0.1.0, in development, not yet stable. Not yet tested in game since the rework.
+Remember the path you've explored and the places you don't want to miss. PaTiDungeon gives you a simple personal map to sketch rooms, corridors and important spots as you go — **your adventure, your map.**
 
 ## Features
 
-- Instance name and type (dungeon, raid, battleground …). Group members and roles: PaTiGroup
-- **Your own dungeon map:** draw the rooms and corridors you have explored on a grid, arrows for the way you walked,
-  and mark bosses (skull), chests (star), dangers (cross) and the entrance (triangle). Every dungeon keeps its own map. The game tells addons
-  nothing about your position inside a dungeon, so the map does not draw itself: you draw it. Tip: put the window
-  next to the minimap.
-- ••• menu: Settings, Lock, Collapse, Test Mode, Hide. Settings: language, scale, lock.
-  Languages: English, Deutsch (others fall back to English)
+- **Know where you are:** See the current instance's name and type.
+- **Draw your own map:** Sketch rooms and corridors as you explore.
+- **Mark what matters:** Note bosses, chests, dangers and the entrance.
+- **Pick up where you left off:** Keep a separate sketch for each dungeon.
+- **Simple and manual:** Nothing is mapped automatically.
 
 ## Installation
 
@@ -40,6 +42,12 @@ Instance name and type at a glance, for World of Warcraft: Forever (Interface 16
 
 `/pd settings` or ••• → Settings: language, scale, window lock.
 - **Window:** panel opacity (30–100 %)
+
+## Important notes
+
+> **Installation-test beta available:** [Download the current ZIP from Releases](https://github.com/patpaskoch/PaTiDungeon/releases). This is an unverified preview for testing the installation, not a stable release.
+
+> Status: 0.1.0, in development, not yet stable. Not yet tested in game since the rework.
 
 ## PaTiSuite
 
