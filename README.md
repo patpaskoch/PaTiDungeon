@@ -2,11 +2,14 @@
 
 <img src="assets/icon-128.png" width="96" alt="PaTiDungeon icon">
 
+## What is PaTiDungeon?
+
 Instance name and type at a glance, for World of Warcraft: Forever (Interface 16001). Display only.
 
 > Status: 0.1.0, in development, not yet released. Not yet tested in game since the rework.
 
 ## Features
+
 - Instance name and type (dungeon, raid, battleground …). Group members and roles: PaTiGroup
 - **Your own dungeon map:** draw the rooms and corridors you have explored on a grid, arrows for the way you walked,
   and mark bosses (skull), chests (star), dangers (cross) and the entrance (triangle). Every dungeon keeps its own map. The game tells addons
@@ -14,6 +17,27 @@ Instance name and type at a glance, for World of Warcraft: Forever (Interface 16
   next to the minimap.
 - ••• menu: Settings, Lock, Collapse, Test Mode, Hide. Settings: language, scale, lock.
   Languages: English, Deutsch (others fall back to English)
+
+## Installation
+
+![PaTiDungeon – three-step installation guide](assets/installation_en.svg)
+
+1. 📥 **Download** – Open [GitHub Releases](https://github.com/patpaskoch/PaTiDungeon/releases) and download the `PaTiDungeon-<version>.zip` file under **Assets** (not **Source code (zip)**).
+2. 📂 **Extract & Copy** – Right-click the ZIP, select **Extract All**, then copy the extracted `PaTiDungeon` folder into the WoW Forever client's `Interface/AddOns/` folder. No renaming is needed.
+3. ☑️ **Enable in Game** – Start WoW, open the **AddOns** menu at character selection, tick **PaTiDungeon**, and click **OK**.
+
+## Getting Started
+
+- Enter a dungeon — the window updates by itself
+- Pick a tool above the grid; left click paints (hold to paint along), right click erases. "Clear" needs two clicks.
+  The arrow tool sets an arrow pointing up; click it again to turn it 45° (8 directions).
+  ••• → Show map hides or shows the grid.
+- `/pd test` shows example data
+
+## Settings
+
+`/pd settings` or ••• → Settings: language, scale, window lock.
+- **Window:** panel opacity (30–100 %)
 
 ## PaTiSuite
 
@@ -38,26 +62,8 @@ Each one is installed on its own and works on its own; none of them is needed by
 - [PaTiLead](https://github.com/patpaskoch/PaTiLead) – manual group tools: raid markers, ready check, pull timer
 - [PaTiSuite](https://github.com/patpaskoch/PaTiSuite) – shows and hides this window together with the other PaTi windows
 
-## Installation
-
-![PaTiDungeon – three-step installation guide](assets/installation_en.svg)
-
-1. 📥 **Download** – Open [GitHub Releases](https://github.com/patpaskoch/PaTiDungeon/releases) and download the `PaTiDungeon-<version>.zip` file under **Assets** (not **Source code (zip)**).
-2. 📂 **Extract & Copy** – Right-click the ZIP, select **Extract All**, then copy the extracted `PaTiDungeon` folder into the WoW Forever client's `Interface/AddOns/` folder. No renaming is needed.
-3. ☑️ **Enable in Game** – Start WoW, open the **AddOns** menu at character selection, tick **PaTiDungeon**, and click **OK**.
-
-## First steps
-- Enter a dungeon — the window updates by itself
-- Pick a tool above the grid; left click paints (hold to paint along), right click erases. "Clear" needs two clicks.
-  The arrow tool sets an arrow pointing up; click it again to turn it 45° (8 directions).
-  ••• → Show map hides or shows the grid.
-- `/pd test` shows example data
-
-## Settings
-`/pd settings` or ••• → Settings: language, scale, window lock.
-- **Window:** panel opacity (30–100 %)
-
 ## Commands
+
 `/pd` or `/patidungeon` — alone: show/hide · `settings` · `test` · `show` · `hide` · `lock` · `unlock` ·
 `reset` (position) · `debug` · `version`
 
@@ -72,4 +78,5 @@ PaTiDungeon is free and open source, and it stays that way. If it makes your run
 [Issues](https://github.com/patpaskoch/PaTiDungeon/issues).
 
 ## License
+
 MIT — see [LICENSE](LICENSE). Copyright (c) 2026 Patrick Koch.
