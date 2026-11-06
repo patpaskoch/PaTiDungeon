@@ -3,7 +3,7 @@
 ## Notes: Instance name and type, and your own hand-drawn dungeon map
 ## Notes-deDE: Instanzname und -typ und deine selbst gezeichnete Dungeonkarte
 ## Author: PaTi
-## Version: 0.1.0
+## Version: 0.1.0-beta.1
 ## IconTexture: Interface\AddOns\PaTiDungeon\Media\icon
 ## SavedVariablesPerCharacter: PaTiDungeonDB
 
