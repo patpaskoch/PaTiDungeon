@@ -4,9 +4,11 @@
 
 ## What is PaTiDungeon?
 
+> **Installation-test beta available:** [Download the current ZIP from Releases](https://github.com/patpaskoch/PaTiDungeon/releases). This is an unverified preview for testing the installation, not a stable release.
+
 Instance name and type at a glance, for World of Warcraft: Forever (Interface 16001). Display only.
 
-> Status: 0.1.0, in development, not yet released. Not yet tested in game since the rework.
+> Status: 0.1.0, in development, not yet stable. Not yet tested in game since the rework.
 
 ## Features
 
